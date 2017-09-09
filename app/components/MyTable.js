@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar } from './Navbar';
 import  { TableHeader } from './TableHeader';
 import { UserRow } from './UserRow';
 
@@ -35,11 +36,11 @@ export class MyTable extends React.Component{
 				}
 				return b.alltime - a.alltime});
 		}
-		
+
 		return users.map((user)=> {
 			keyNums++;
 			return (
-				<UserRow key = {keyNums} camperName= {user.username} thirtyDaysPoints = {user.recent} allTimePoints = {user.alltime}/>
+				<UserRow key = {keyNums} number={keyNums} camperName= {user.username} thirtyDaysPoints = {user.recent} allTimePoints = {user.alltime}/>
 			)
 		});
 	}
@@ -47,13 +48,16 @@ export class MyTable extends React.Component{
 	render(){		
 		let userRows = this.generateRows(this.props.users);
 
-		return	<table className="table">
-					<thead>
-						<TableHeader orderRecent={this.orderRecent.bind(this)} orderAll={this.orderAll.bind(this)} />
-					</thead>	
-					<tbody>
-						{userRows}
-					</tbody>
-				</table>;
+		return <div>
+					<Navbar/>
+					<table className="table table-striped">
+						<thead className="thead-inverse">
+							<TableHeader orderRecent={this.orderRecent.bind(this)} orderAll={this.orderAll.bind(this)} />
+						</thead>
+						<tbody>
+							{userRows}
+						</tbody>
+					</table>
+				</div>
 	}
 };

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { MyTable } from './MyTable'
+import { MyTable } from './MyTable';
 
 export class App extends React.Component {
 	constructor(){
@@ -15,7 +14,6 @@ export class App extends React.Component {
 		.then((Response)=>
 			Response.json())
 		.then((data) => {
-		
 			this.setState({
 				users: data
 			})
@@ -24,5 +22,6 @@ export class App extends React.Component {
 
 	render(){
 		return <MyTable users = {this.state.users}/>;
-	}
+		 		
+	}	
 };
