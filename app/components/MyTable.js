@@ -8,7 +8,7 @@ export class MyTable extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			allTime: 1
+			allTime: 0
 		}
 	}
 
