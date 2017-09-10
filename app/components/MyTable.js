@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from './Navbar';
 import  { TableHeader } from './TableHeader';
 import { UserRow } from './UserRow';
+import { switchActiveTo } from '../scripts/switchActiveTo';
 
 export class MyTable extends React.Component{
 	constructor(){
@@ -11,12 +12,13 @@ export class MyTable extends React.Component{
 		}
 	}
 
-	orderRecent(){
+	orderRecent(e){
+		switchActiveTo(e);
 		this.setState({allTime: 0});
-		
 	}
 
-	orderAll(){
+	orderAll(e){
+		switchActiveTo(e);
 		this.setState({allTime: 1});
 	}
 
